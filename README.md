@@ -65,47 +65,28 @@ En este ejercicio se implementa un sistema en **C** para manejar registros de es
 - Al separar la lógica en funciones (`crear`, `mostrar`, `liberar`), el programa se vuelve más legible y fácil de mantener.  
 - Aunque la gestión dinámica requiere mayor cuidado (especialmente liberar memoria siempre), la eficiencia en el uso de recursos es mucho mayor.
 
-- ##  Ejercicio 3 – Promedio con Cálculo Lambda  
+##  Ejercicio 3 – Promedio con Cálculo Lambda  
 
-El **cálculo lambda** es una herramienta matemática que nos permite describir la computación de forma declarativa.  
-En este ejercicio se pide representar el **promedio de una lista de números** utilizando dicha notación.  
+En este ejercicio se utiliza el **cálculo lambda** como una forma declarativa de representar el cálculo del **promedio de una lista de números**.  
+Este enfoque permite expresar la operación de manera matemática y funcional, sin necesidad de detallar paso a paso cómo se ejecuta.  
 
-El promedio es una operación muy común, definida como:  
 
-\[
-\text{promedio} = \frac{\text{suma de los elementos}}{\text{número de elementos}}
-\]
+## Implementación en Cálculo Lambda  
 
-#  Implementación en Cálculo Lambda  
-
-# Función Suma  
-Se define una función que recorre la lista acumulando sus elementos:  
-
-\[
-\text{SUM} = \lambda xs.\; 
-\begin{cases} 
-0 & \text{si la lista está vacía} \\ 
-\text{cabeza(xs)} + \text{SUM(cola(xs))} & \text{en otro caso} 
-\end{cases}
-\]
+# Función Suma 
+Se define una función que toma una lista y recorre sus elementos para obtener la suma total.  
+De esta manera, si la lista tiene valores, se van agregando uno a uno hasta obtener el resultado final.  
+Si la lista está vacía, la suma corresponde a cero.  
 
 # Función Longitud  
-Se define una función que cuenta la cantidad de elementos en la lista:  
+Se define una función que cuenta cuántos elementos tiene una lista.  
+En el caso de una lista vacía, la longitud es cero, mientras que si tiene valores se va sumando uno por cada elemento encontrado.  
+Esto permite calcular el tamaño de la lista de forma recursiva y precisa.  
 
-\[
-\text{LEN} = \lambda xs.\; 
-\begin{cases} 
-0 & \text{si la lista está vacía} \\ 
-1 + \text{LEN(cola(xs))} & \text{en otro caso} 
-\end{cases}
-\]
+# Función Promedio 
+El promedio se representa como la división de la suma de los elementos de la lista entre la cantidad total de elementos.  
+En otras palabras, combina los dos cálculos anteriores (suma y longitud) para dar un resultado final.  
 
-### Función Promedio  
-El promedio se expresa como la división entre la suma y la longitud:  
-
-\[
-\text{PROM} = \lambda xs.\; \frac{\text{SUM(xs)}}{\text{LEN(xs)}}
-\]
 
 # Ejemplo  
 
@@ -115,9 +96,9 @@ Dada la lista:
 [2, 4, 6]
 \]  
 
-- **SUM([2,4,6]) = 2 + 4 + 6 = 12**  
-- **LEN([2,4,6]) = 3**  
-- **PROM([2,4,6]) = 12 / 3 = 4**  
+- SUM([2,4,6]) = 2 + 4 + 6 = 12  
+- LEN([2,4,6]) = 3 
+- PROM([2,4,6]) = 12 / 3 = 4 
 
  **Resultado:** `4`  
 
